@@ -1,0 +1,57 @@
+{{define "title"}}Home{{end}}
+
+{{define "content"}}
+<div id="root">
+    <div id="header">
+        <h1>Statusphere</h1>
+        <p>Set your status on the Atmosphere.</p>
+    </div>
+    <div class="container">
+        <div class="card">
+            {{if .Profile}}
+                <form action="/logout" method="post" class="session-form">
+                    <div>
+                        Hi, <strong>{{with .Profile.displayName}}{{.}}{{else}}friend{{end}}</strong>. What's your status today?
+                    </div>
+                    <div>
+                        <button type="submit">Log out</button>
+                    </div>
+                </form>
+            {{else}}
+                <div class="session-form">
+                    <div><a href="/login">Log in</a> to set your status!</div>
+                    <div>
+                        <a href="/login" class="button">Log in</a>
+                    </div>
+                </div>
+            {{end}}
+        </div>
+
+        {{if .Profile}}
+            <form action="/status" method="post" class="status-options">
+                <!-- Status options will be added in the next phase -->
+                <button class="status-option" name="status" value="👍">👍</button>
+                <button class="status-option" name="status" value="👎">👎</button>
+                <button class="status-option" name="status" value="💙">💙</button>
+                <button class="status-option" name="status" value="🥹">🥹</button>
+            </form>
+        {{end}}
+
+        {{range .Statuses}}
+            <div class="status-line">
+                <div>
+                    <div class="status">{{.Status}}</div>
+                </div>
+                <div class="desc">
+                    <a class="author" href="https://bsky.app/profile/{{index $.DidHandleMap .AuthorDID}}">@{{index $.DidHandleMap .AuthorDID}}</a>
+                    is feeling {{.Status}} today
+                </div>
+            </div>
+        {{else}}
+            <div class="card">
+                <p>No statuses yet!</p>
+            </div>
+        {{end}}
+    </div>
+</div>
+{{end}}
