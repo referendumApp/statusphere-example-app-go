@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/bluesky-social/statusphere-go/internal/config"
-	"github.com/bluesky-social/statusphere-go/internal/db"
-	"github.com/bluesky-social/statusphere-go/internal/view"
+	"github.com/referendumApp/statusphere-example-app-go/internal/config"
+	"github.com/referendumApp/statusphere-example-app-go/internal/db"
+	"github.com/referendumApp/statusphere-example-app-go/internal/view"
 	"github.com/gorilla/sessions"
 	"github.com/rs/zerolog/log"
 )

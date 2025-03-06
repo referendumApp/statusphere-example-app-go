@@ -9,9 +9,9 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/bluesky-social/statusphere-go/internal/config"
-	"github.com/bluesky-social/statusphere-go/internal/db"
-	"github.com/bluesky-social/statusphere-go/internal/server"
+	"github.com/referendumApp/statusphere-example-app-go/internal/config"
+	"github.com/referendumApp/statusphere-example-app-go/internal/db"
+	"github.com/referendumApp/statusphere-example-app-go/internal/server"
 	"github.com/joho/godotenv"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
